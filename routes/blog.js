@@ -26,7 +26,7 @@ router.get('/add', (req, res) => {
 router.get('/:id', async (req, res) => {
     const blog = await Blog.findById(req.params.id).populate('createdBy');
     const comments = await Comment.find({ blogId: req.params.id }).populate('createdBy');
-    console.log('check id====', req.params.id, blog, comments);
+    // console.log('check id====', req.params.id, blog, comments);
     return res.render('blog', {
         blog,
         comments,
